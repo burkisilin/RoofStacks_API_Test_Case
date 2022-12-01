@@ -683,6 +683,131 @@ class TestData:
                         "length": "Random",
                         "chars_type": "AlphaNumeric"
                     }})
+            },
+            {
+                "Case": "Create user - Password Alpha",
+                "Test Type": "Positive",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "Alpha"
+                    }})
+            },
+            {
+                "Case": "Create user - Password AlphaNumeric",
+                "Test Type": "Positive",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Password Numeric",
+                "Test Type": "Positive",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "Numeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Password Symbolic",
+                "Test Type": "Positive",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "Symbolic"
+                    }})
+            },
+            {
+                "Case": "Create user - Password AlphaNumeric & Symbolic",
+                "Test Type": "Positive",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "All"
+                    }})
             }
 
         ]
@@ -694,7 +819,7 @@ class TestData:
         elif len_type.lower() == "max":
             string_len = char_range[1]
         elif len_type.lower() == "mid":
-            string_len = round((char_range[1] - char_range[0]) / 2)
+            string_len = round((char_range[1] - char_range[0]) / 2)  # Rounded to the integer so the range function does not throw an error.
         elif len_type.lower() == "random":
             string_len = random.randint(char_range[0], char_range[1])
         else:
@@ -707,18 +832,27 @@ class TestData:
             characters = string.digits
 
         elif chars_type.lower() == "alphanumeric":  # Alphabetic and Numeric Characters only
-            characters = string.ascii_letters + string.digits
+
+            # Making sure the generated string contains both Ascii letters & digits. Random generation can cause issue that the string not containing one of those.
+            string1 = ''.join(random.choice(string.ascii_letters) for _ in range(round(string_len / 2)))
+            string2 = ''.join(random.choice(string.digits) for _ in range(string_len - len(string1)))
+
+            generated_string = string1 + string2
 
         elif chars_type.lower() == "symbolic":  # Symbolic Characters only
-            characters = string.ascii_letters + string.digits + string.punctuation
+            characters = string.punctuation
 
         elif chars_type.lower() == "all":  # Alphanumeric, Numeric & Symbolic Characters
-            characters = string.ascii_letters + string.digits + string.punctuation
+            string1 = ''.join(random.choice(string.ascii_letters) for _ in range(round(string_len / 3)))
+            string2 = ''.join(random.choice(string.digits) for _ in range(round(string_len/2) - len(string1)))
+            string3 = ''.join(random.choice(string.punctuation) for _ in range(string_len - len(string1 + string2)))
+            generated_string = string1 + string2 + string3
 
         else:
             raise ValueError('Unexpected Type', chars_type, "Expected Types: Alpha, Numeric, AlphaNumeric, Symbolic, All")
 
-        generated_string = ''.join(random.choice(characters) for _ in range(string_len))
+        if chars_type.lower() == "symbolic" or chars_type.lower() == "alpha" or chars_type.lower() == "numeric":
+            generated_string = ''.join(random.choice(characters) for _ in range(string_len))
 
         return generated_string
 
