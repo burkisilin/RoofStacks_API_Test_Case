@@ -843,6 +843,8 @@ class TestData:
             characters = string.punctuation
 
         elif chars_type.lower() == "all":  # Alphanumeric, Numeric & Symbolic Characters
+
+            # Making sure the generated string contains both Ascii letters & digits & symbols. Random generation can cause issue that the string not containing one of those.
             string1 = ''.join(random.choice(string.ascii_letters) for _ in range(round(string_len / 3)))
             string2 = ''.join(random.choice(string.digits) for _ in range(round(string_len/2) - len(string1)))
             string3 = ''.join(random.choice(string.punctuation) for _ in range(string_len - len(string1 + string2)))
