@@ -1,3 +1,6 @@
+Project Goal:<br />
+This project aims to cover all the possible test scenarios for provided endpoints using Pyhon PyTest.<br />
+
 Work Plan:<br />
 Day 1: Creation of base structure & determination of the tools & frameworks going to be used.<br />
 Day 2: Creation of test cases for "Create User" request and building required functions.<br />
