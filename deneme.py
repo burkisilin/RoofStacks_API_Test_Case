@@ -26,7 +26,7 @@ class TestData:
                     "userName": {
                         "range": user_name_char_range,
                         "length": "Min",
-                        "chars_type": "Alpha"
+                        "chars_type": "AlphaNumeric"
                     },
                     "password": {
                         "range": (4, 8),
@@ -51,7 +51,7 @@ class TestData:
                     "userName": {
                         "range": user_name_char_range,
                         "length": "Mid",
-                        "chars_type": "Alpha"
+                        "chars_type": "AlphaNumeric"
                     },
                     "password": {
                         "range": (4, 8),
@@ -76,7 +76,7 @@ class TestData:
                     "userName": {
                         "range": user_name_char_range,
                         "length": "Max",
-                        "chars_type": "Alpha"
+                        "chars_type": "AlphaNumeric"
                     },
                     "password": {
                         "range": (4, 8),
@@ -101,7 +101,7 @@ class TestData:
                     "userName": {
                         "range": user_name_char_range,
                         "length": "Mid",
-                        "chars_type": "Alpha"
+                        "chars_type": "AlphaNumeric"
                     },
                     "password": {
                         "range": (4, 8),
@@ -126,7 +126,7 @@ class TestData:
                     "userName": {
                         "range": user_name_char_range,
                         "length": "Mid",
-                        "chars_type": "Alpha"
+                        "chars_type": "AlphaNumeric"
                     },
                     "password": {
                         "range": (4, 8),
@@ -151,7 +151,7 @@ class TestData:
                     "userName": {
                         "range": (0, 0),  # Leaves the username field empty
                         "length": "Min",
-                        "chars_type": "Alpha"
+                        "chars_type": "AlphaNumeric"
                     },
                     "password": {
                         "range": (4, 8),
@@ -176,7 +176,7 @@ class TestData:
                     "userName": {
                         "range": user_name_char_range,
                         "length": "Min",
-                        "chars_type": "Alpha"
+                        "chars_type": "AlphaNumeric"
                     },
                     "password": {
                         "range": (0, 0),  # Leaves the password field empty
@@ -201,7 +201,7 @@ class TestData:
                     "userName": {
                         "range": user_name_char_range,
                         "length": "Min",
-                        "chars_type": "Alpha"
+                        "chars_type": "AlphaNumeric"
                     },
                     "password": {
                         "range": (4, 8),
@@ -226,7 +226,7 @@ class TestData:
                     "userName": {
                         "range": (0, 0), # Leaves the username field empty
                         "length": "Min",
-                        "chars_type": "Alpha"
+                        "chars_type": "AlphaNumeric"
                     },
                     "password": {
                         "range": (4, 8),
@@ -251,11 +251,436 @@ class TestData:
                     "userName": {
                         "range": (0, 0),  # Leaves the username field empty
                         "length": "Min",
-                        "chars_type": "Alpha"
+                        "chars_type": "AlphaNumeric"
                     },
                     "password": {
                         "range": (0, 0),
                         "length": "Min",  # Leaves the password field empty
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Empty Lastname & Username Field",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": (0, 0),  # Leaves the lastname field empty
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": (0, 0),  # Leaves the username field empty
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Empty Lastname Field",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": (0, 0),  # Leaves the lastname field empty
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Empty Lastname & Username Field",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": (0, 0),  # Leaves the lastname field empty
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": (0, 0),  # Leaves the username field empty
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Empty Lastname & Username & Password Field",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": (0, 0),  # Leaves the lastname field empty
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": (0, 0),  # Leaves the username field empty
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (0, 0),  # Leaves the username field empty
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Empty Username & Password Field",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": (0, 0),  # Leaves the username field empty
+                        "length": "Min",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (0, 0),  # Leaves the password field empty
+                        "length": "Min",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Firstname Alphanumeric",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Firstname Numeric",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Numeric"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Firstname Symbolic",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Symbolic"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Firstname Alphanumeric & Symbolic",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "All"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Lastname Alphanumeric",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Lastname Numeric",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Numeric"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Lastname Symbolic",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Symbolic"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Lastname Alphanumeric & Symbolic",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "All"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Username Alpha",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Username Numeric",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Username Symbolic",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "AlphaNumeric"
+                    }})
+            },
+            {
+                "Case": "Create user - Username AlphaNumeric & Symbolic",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "All"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
                         "chars_type": "AlphaNumeric"
                     }})
             }
@@ -269,23 +694,29 @@ class TestData:
         elif len_type.lower() == "max":
             string_len = char_range[1]
         elif len_type.lower() == "mid":
-            string_len = (char_range[1] - char_range[0]) / 2
+            string_len = round((char_range[1] - char_range[0]) / 2)
         elif len_type.lower() == "random":
             string_len = random.randint(char_range[0], char_range[1])
         else:
-            raise ValueError('Unexpected Length Type', len, "Expected Types: Min, Max, Mid, Random")
+            raise ValueError('Unexpected Length Type', len_type, "Expected Types: Min, Max, Mid, Random")
 
         if chars_type.lower() == "alpha":  # Alphabetic characters only
             characters = string.ascii_letters
 
+        elif chars_type.lower() == "numeric":  # Numeric Characters only
+            characters = string.digits
+
         elif chars_type.lower() == "alphanumeric":  # Alphabetic and Numeric Characters only
             characters = string.ascii_letters + string.digits
+
+        elif chars_type.lower() == "symbolic":  # Symbolic Characters only
+            characters = string.ascii_letters + string.digits + string.punctuation
 
         elif chars_type.lower() == "all":  # Alphanumeric, Numeric & Symbolic Characters
             characters = string.ascii_letters + string.digits + string.punctuation
 
         else:
-            raise ValueError('Unexpected Type', type, "Expected Types: Alpha, AlphaNumeric, All")
+            raise ValueError('Unexpected Type', chars_type, "Expected Types: Alpha, Numeric, AlphaNumeric, Symbolic, All")
 
         generated_string = ''.join(random.choice(characters) for _ in range(string_len))
 
@@ -310,4 +741,3 @@ class TestData:
             return request_body
 
 
-print(TestData().registerTestCases)
