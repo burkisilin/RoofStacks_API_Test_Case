@@ -16,6 +16,7 @@ class TestApi(BaseTest):
         print(f"\nRunning -> {case['Case']}")
         request_dict = case["Request_Body"]
         print("Request Body:" ,request_dict)
+
         endpoint = "/users"
         response = self.Wrappers.post_wrapper(self.BASE_URL + endpoint, request_dict)
 
@@ -24,6 +25,12 @@ class TestApi(BaseTest):
             self.EnsureThat.is_same(response.status_code, 201)  # Status code is expected as 201 when the request has succeeded and has led to the creation of a resource.
             self.EnsureThat.is_same(response_json["userId"] is not None, True)  # When the user created a User ID must be returned from the server. Checking if a User ID has returned.
             self.EnsureThat.is_same(type(response_json["userId"]) == str, True)  # When the user created a User ID must be returned from the server. Checking if the returned value is a string.
+
+            self.EnsureThat.is_same((case["Request_Body"]["firstName"]).isalpha(), True)  # Expect firstName to contain only Alpha chars
+            self.EnsureThat.is_same((case["Request_Body"]["lastName"]).isalpha(), True)  # Expect lastName to contain only Alpha chars
+            self.EnsureThat.is_same((case["Request_Body"]["userName"]).isalnum(), True)   # Expect userName to contain only AlphaNumeric chars
+
+
         else:
             self.EnsureThat.is_same(response.status_code, 400)  # Status code is expected as 400 when the request cannot be processed due to something perceived to be a client error.
 

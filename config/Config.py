@@ -82,30 +82,8 @@ class TestData:
 
     registerTestCases = [
 
-        {
-            "Case": "Create User - Username Symbol",
-            "Request_Body": {
-                "firstName": "jan1e",
-                "lastName": "doe",
-                "username": "doejj",
-                "password": "123456Aa*"
-            }},
-        {
-            "Case": "Create User - Firstname is Below Minimum Value",
-            "Request_Body": {
-                "firstName": "jan1e",
-                "lastName": "doe",
-                "username": "doejj",
-                "password": "123456Aa*"
-            }},
-        {
-            "Case": "Create User - Lastname is Below Minimum Value",
-            "Request_Body": {
-                "firstName": "jan1e",
-                "lastName": "doe",
-                "username": "doejj",
-                "password": "123456Aa*"
-            }},
+
+
         {
             "Case": "Create User - Username is Below Minimum Value",
             "Request_Body": {

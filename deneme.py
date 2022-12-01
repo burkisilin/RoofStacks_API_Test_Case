@@ -224,7 +224,7 @@ class TestData:
                         "chars_type": "Alpha"
                     },
                     "userName": {
-                        "range": (0, 0), # Leaves the username field empty
+                        "range": (0, 0),  # Leaves the username field empty
                         "length": "Min",
                         "chars_type": "AlphaNumeric"
                     },
@@ -808,6 +808,181 @@ class TestData:
                         "length": "Random",
                         "chars_type": "All"
                     }})
+            },
+            {
+                "Case": "Create user - Firstname Is Below Min. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": (1, 1),
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "All"
+                    }})
+            },
+            {
+                "Case": "Create user - Firstname & Lastname Are Below Min. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": (1, 1),  # Firstname field will be generated with 1 Char only
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": (1, 1),  # Firstname field will be generated with 1 Char only
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "All"
+                    }})
+            },
+            {
+                "Case": "Create user - Firstname & Username Are Below Min. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": (1, 1),  # Firstname field will be generated with 1 Char only
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": (1, 1),  # Username field will be generated with 1 Char only
+                        "length": "Min",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "All"
+                    }})
+            },
+            {
+                "Case": "Create user - Firstname & Lastname & Username Are Below Min. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": (1, 1),  # Firstname field will be generated with 1 Char only
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": (1, 1),  # Lastname field will be generated with 1 Char only
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": (1, 1),  # Username field will be generated with 1 Char only
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "All"
+                    }})
+            },
+            {
+                "Case": "Create user - LastName Is Below Min. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": (1, 1),  # Lastname field will be generated with 1 Char only
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "Symbolic"
+                    }})
+            },
+            {
+                "Case": "Create user - LastName & UserName Are Below Min. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": (1, 1),  # Lastname field will be generated with 1 Char only
+                        "length": "Min",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": (1, 1),  # Username field will be generated with 1 Char only
+                        "length": "Min",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "Symbolic"
+                    }})
+            },
+            {
+                "Case": "Create user - UserName Is Below Min. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": (1, 1),  # Username field will be generated with 1 Char only
+                        "length": "Min",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "Symbolic"
+                    }})
             }
 
         ]
@@ -819,7 +994,7 @@ class TestData:
         elif len_type.lower() == "max":
             string_len = char_range[1]
         elif len_type.lower() == "mid":
-            string_len = round((char_range[1] - char_range[0]) / 2)  # Rounded to the integer so the range function does not throw an error.
+            string_len = round((char_range[1] + char_range[0]) / 2)  # Rounded to the integer so the range function does not throw an error.
         elif len_type.lower() == "random":
             string_len = random.randint(char_range[0], char_range[1])
         else:
