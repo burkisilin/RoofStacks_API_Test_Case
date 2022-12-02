@@ -983,6 +983,181 @@ class TestData:
                         "length": "Random",
                         "chars_type": "Symbolic"
                     }})
+            },
+            {
+                "Case": "Create user - Firstname Is Above Max. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": (51, 51),  # Username field will be generated with 51 Char
+                        "length": "Max",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "All"
+                    }})
+            },
+            {
+                "Case": "Create user - Firstname & Lastname Are Above Max. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": (51, 51),  # Firstname field will be generated with 51 Char
+                        "length": "Max",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": (51, 51),  # Lastname field will be generated with 51 Char
+                        "length": "Max",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "All"
+                    }})
+            },
+            {
+                "Case": "Create user - Firstname & Username Are Above Max. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": (51, 51),  # Firstname field will be generated with 51 Char
+                        "length": "Max",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": (13, 13),  # Username field will be generated with 13 Char
+                        "length": "Max",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "All"
+                    }})
+            },
+            {
+                "Case": "Create user - Firstname & Lastname & Username Are Above Max. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": (51, 51),  # Firstname field will be generated with 51 Char
+                        "length": "Max",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": (51, 51),  # Lastname field will be generated with 51 Char
+                        "length": "Max",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": (13, 13),  # Username field will be generated with 51 Char
+                        "length": "Max",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "All"
+                    }})
+            },
+            {
+                "Case": "Create user - LastName Is Above Max. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": (51, 51),  # Lastname field will be generated with 51 Char
+                        "length": "Max",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": user_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "Symbolic"
+                    }})
+            },
+            {
+                "Case": "Create user - LastName & UserName Are Above Max. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": (51, 51),  # Lastname field will be generated with 51 Char
+                        "length": "Max",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": (13, 13),  # Username field will be generated with 13 Char
+                        "length": "Max",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "Symbolic"
+                    }})
+            },
+            {
+                "Case": "Create user - UserName Is Above Max. Value",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "userName": {
+                        "range": (13, 13),  # Username field will be generated with 13 Char
+                        "length": "Max",
+                        "chars_type": "AlphaNumeric"
+                    },
+                    "password": {
+                        "range": (4, 8),
+                        "length": "Random",
+                        "chars_type": "Symbolic"
+                    }})
             }
 
         ]
