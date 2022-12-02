@@ -1,21 +1,17 @@
-from config.Config import TestData
 from tests import BaseTest
 import pytest
-import requests
 import json
-from utils import generateRequestBody
-from config.Config import TestData
-from deneme import TestData
+from deneme import RegisterTestData, GetUserTestData
 
 
 class TestApi(BaseTest):
     BASE_URL = "https://3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io"
 
-    @pytest.mark.parametrize('case', TestData().registerTestCases)
+    @pytest.mark.parametrize('case', RegisterTestData().registerTestCases)
     def test_register(self, case):
         print(f"\nRunning -> {case['Case']}")
         request_dict = case["Request_Body"]
-        print("Request Body:" ,request_dict)
+        print("Request Body:", request_dict)
 
         endpoint = "/users"
         response = self.Wrappers.post_wrapper(self.BASE_URL + endpoint, request_dict)
@@ -39,7 +35,7 @@ class TestApi(BaseTest):
         #print(f"\n{responseJson}")
 
 
-    def test_user_list(self):
+    def test_get_user_list(self):
         endpoint = "/users"
         response = self.Wrappers.get_wrapper(self.BASE_URL + endpoint)
         response_json = json.loads(response.content)
@@ -55,5 +51,28 @@ class TestApi(BaseTest):
                 self.EnsureThat.is_same(type(user_data["isActive"]), bool)  # Expect Is Active key to be Boolean type
             else:
                 self.EnsureThat.is_true(False)  # Fail the test
-            print(user_data)
+
+    @pytest.mark.parametrize('case', GetUserTestData.test_data)
+    def test_get_user_by_id(self, case):
+        print(case["Case"])
+        endpoint = "/users"
+        user_id = case["user_id"]
+        response = self.Wrappers.get_wrapper(self.BASE_URL + endpoint + "/" + user_id)
+        response_json = json.loads(response.content)
+
+        if case["is_valid"]:
+            self.EnsureThat.is_same(response.status_code, 200)  # Status code is expected as 200 when the request has succeeded.
+
+            if "id" in response_json and "username" in response_json and "firstName" in response_json and "lastName" in response_json and "isActive" in response_json:  # Expect the given keys to be in the returned user dictionary.
+                self.EnsureThat.is_same(type(response_json["id"]), str)  # Expect ID to be String type
+                self.EnsureThat.is_same(type(response_json["username"]), str)  # Expect Username to be String type
+                self.EnsureThat.is_same(type(response_json["firstName"]), str)  # Expect First Name to be String type
+                self.EnsureThat.is_same(type(response_json["lastName"]), str)  # Expect Last Name to be String type
+                self.EnsureThat.is_same(type(response_json["isActive"]), bool)  # Expect Is Active key to be Boolean type
+            else:
+                self.EnsureThat.is_true(False)  # Fail the test
+
+        else:
+            self.EnsureThat.is_same(response.status_code, 404)  # Status code is expected as 404 when that the server cannot find the requested resource.
+
 

@@ -11,7 +11,7 @@ Day 5: Continue creatiof of test cases for "Update User Info" request and buildi
 Worklog:<br />
 Day 1: Creation of base structure & determination of the tools & frameworks going to be used.<br />
 Day 2: Creation of test cases for "Create User" request and building required functions.<br />
-Day 3:<br />
+Day 3: Creation of test cases for "Create User" request has completed. Started working on "Get User List" & "Get User By ID" & "Remove User" requests<br />
 Day 4:<br />
 Day 5:<br />
 

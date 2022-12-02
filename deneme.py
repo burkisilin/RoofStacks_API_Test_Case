@@ -2,7 +2,7 @@ import random
 import string
 
 
-class TestData:
+class RegisterTestData:
     def __init__(self):
         first_name_char_range = (2, 50)  # FirstName Char Ranges
         last_name_char_range = (2, 50)  # LastName Char Ranges
@@ -1169,7 +1169,8 @@ class TestData:
         elif len_type.lower() == "max":
             string_len = char_range[1]
         elif len_type.lower() == "mid":
-            string_len = round((char_range[1] + char_range[0]) / 2)  # Rounded to the integer so the range function does not throw an error.
+            string_len = round((char_range[1] + char_range[
+                0]) / 2)  # Rounded to the integer so the range function does not throw an error.
         elif len_type.lower() == "random":
             string_len = random.randint(char_range[0], char_range[1])
         else:
@@ -1196,12 +1197,13 @@ class TestData:
 
             # Making sure the generated string contains both Ascii letters & digits & symbols. Random generation can cause issue that the string not containing one of those.
             string1 = ''.join(random.choice(string.ascii_letters) for _ in range(round(string_len / 3)))
-            string2 = ''.join(random.choice(string.digits) for _ in range(round(string_len/2) - len(string1)))
+            string2 = ''.join(random.choice(string.digits) for _ in range(round(string_len / 2) - len(string1)))
             string3 = ''.join(random.choice(string.punctuation) for _ in range(string_len - len(string1 + string2)))
             generated_string = string1 + string2 + string3
 
         else:
-            raise ValueError('Unexpected Type', chars_type, "Expected Types: Alpha, Numeric, AlphaNumeric, Symbolic, All")
+            raise ValueError('Unexpected Type', chars_type,
+                             "Expected Types: Alpha, Numeric, AlphaNumeric, Symbolic, All")
 
         if chars_type.lower() == "symbolic" or chars_type.lower() == "alpha" or chars_type.lower() == "numeric":
             generated_string = ''.join(random.choice(characters) for _ in range(string_len))
@@ -1227,3 +1229,31 @@ class TestData:
             return request_body
 
 
+class GetUserTestData:
+    test_data = [
+        {
+            "Case": "Get User - Valid User ID",
+            "user_id": "c4f6c088-f91b-494e-b7f0-a08f48df3180",
+            "is_valid": True
+        },
+        {
+            "Case": "Get User - Valid User ID",
+            "user_id": "c3e140a4-99db-44c2-a9ea-896904745993",
+            "is_valid": True
+        },
+        {
+            "Case": "Get User - Invalid User ID",
+            "user_id": "c1234567-AB12-ABC4-1234-A1B2C3D4E5",
+            "is_valid": False
+        },
+        {
+            "Case": "Get User - Invalid User ID",
+            "user_id": "c1234567-AB12-ABC4-1234-A1B2C3D4E5",
+            "is_valid": False
+        },
+        {
+            "Case": "Get User - Empty User ID",
+            "user_id": "",
+            "is_valid": False
+        }
+    ]
