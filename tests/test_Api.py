@@ -4,10 +4,11 @@ import json
 from deneme import RegisterTestData, GetUserTestData
 
 
+
 class TestApi(BaseTest):
     BASE_URL = "https://3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io"
 
-    @pytest.mark.parametrize('case', RegisterTestData().registerTestCases)
+    @pytest.mark.parametrize('case', RegisterTestData().registerTestCases, ids=[i["Case"] for i in RegisterTestData().registerTestCases])
     def test_register(self, case):
         print(f"\nRunning -> {case['Case']}")
         request_dict = case["Request_Body"]
@@ -24,7 +25,7 @@ class TestApi(BaseTest):
 
             self.EnsureThat.is_true((case["Request_Body"]["firstName"]).isalpha())  # Expect firstName to contain only Alpha chars
             self.EnsureThat.is_true((case["Request_Body"]["lastName"]).isalpha())  # Expect lastName to contain only Alpha chars
-            self.EnsureThat.is_true((case["Request_Body"]["userName"]).isalnum())   # Expect userName to contain only AlphaNumeric chars
+            self.EnsureThat.is_true((case["Request_Body"]["username"]).isalnum())   # Expect userName to contain only AlphaNumeric chars
 
 
         else:

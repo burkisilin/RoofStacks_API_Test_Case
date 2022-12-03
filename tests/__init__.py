@@ -1,10 +1,16 @@
+import logging
+
+import pytest
 import requests
-import json
 import pytest_check as check  # Soft assertion in order to keep the tests running in case of any case fails.
+from utils.client import Client
 
 
+@pytest.mark.usefixtures("setup")
 class BaseTest:  # Common classes
 
+    client = Client()
+    logger: logging.Logger
 
     class Wrappers(object):
 
