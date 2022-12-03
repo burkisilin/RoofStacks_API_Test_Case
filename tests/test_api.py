@@ -1,13 +1,15 @@
-from tests import BaseTest
-import pytest
 import json
-from config.test_datas import RegisterTestData, GetUserTestData, RemoveUserTestData, SwitchActivityTestData
+import pytest
+from tests import BaseTest
 from utils.client import Client
 import pytest_check as check  # Soft assertion in order to keep the tests running in case of any case fails.
+from config.test_datas import RegisterTestData, GetUserTestData, RemoveUserTestData, SwitchActivityTestData
+from utils.helpers import Helpers
 
 
 class TestApi(BaseTest):
     client = Client()
+    helpers = Helpers()
 
     @pytest.mark.parametrize('case', RegisterTestData().registerTestCases,
                              ids=[i["Case"] for i in RegisterTestData().registerTestCases])
@@ -39,6 +41,24 @@ class TestApi(BaseTest):
                         400)  # Status code is expected as 400 when the request cannot be processed due to something perceived to be a client error.
 
         check.less(response.elapsed.total_seconds(), 5)  # Expect the request to be responded within 5 seconds.
+
+    def test_register_integration(self):  # Testing of if the registration works.
+        new_user_json, new_user_id = self.helpers.register()
+        users = self.helpers.get_users()
+
+        user_found = False
+        for user in users:
+            if user["id"] == new_user_id:
+                user_found = True
+                check.equal(user["username"], new_user_json[
+                    "username"])  # Check if the found user id data matches with the register body.
+                check.equal(user["firstName"], new_user_json[
+                    "firstName"])  # Check if the found user id data matches with the register body.
+                check.equal(user["lastName"], new_user_json[
+                    "lastName"])  # Check if the found user id data matches with the register body.
+                break  # Stop checking when the user found by ID.
+        if not user_found:
+            assert False  # Registered user could not be found.
 
     def test_get_user_list(self):
         response = self.client.get("/users")
@@ -90,14 +110,16 @@ class TestApi(BaseTest):
                              ids=[i["Case"] for i in RemoveUserTestData.test_data])
     def test_remove_user(self, case):
         user_id = case["user_id"]
-
         self.logger.info(f"| Case: {case['Case']} | User ID: {user_id}")
 
         response = self.client.delete(f"/users/{user_id}")
-
+        users_after = self.helpers.get_users()
         if case["Positive Case"]:
             check.equal(response.status_code,
                         204)  # Status code is expected as 204 when the server successfully processed the request, but is not returning any content.
+            check.is_true(
+                self.helpers.check_user_is_deleted(users_after, user_id))  # Check if the user has deleted successfully.
+
         else:
             check.equal(response.status_code,
                         404)  # Status code is expected as 404 when that the server cannot find the requested resource.
@@ -115,7 +137,8 @@ class TestApi(BaseTest):
         response = self.client.patch(f"/users/{user_id}/activity", request_body)
         if case["Positive Case"]:
             response_json = json.loads(response.content)
-            check.is_true(response_json["userId"] == user_id and response_json["isActive"] == case['new_isActive'])  # Check if the returned user is correct and "isActive" value is updated successfully.
+            check.is_true(response_json["userId"] == user_id and response_json["isActive"] == case[
+                'new_isActive'])  # Check if the returned user is correct and "isActive" value is updated successfully.
             check.equal(response.status_code, 200)  # Status code is expected as 200 when the request has succeeded.
         else:
             check.equal(response.status_code,

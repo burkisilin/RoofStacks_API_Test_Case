@@ -1,6 +1,6 @@
 import pytest
-from utils.client import Client
 import logging
+from utils.client import Client
 
 
 @pytest.fixture(autouse=True, scope="function")
