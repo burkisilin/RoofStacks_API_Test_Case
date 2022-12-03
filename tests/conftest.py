@@ -9,6 +9,11 @@ def setup(request):
     Client.set_url(BASE_URI)
     logger = logging.getLogger(request.node.name)
     logger.setLevel(logging.INFO)
+
+    fh = logging.FileHandler('lastrun.log')
+    fh.setLevel(logging.INFO)
+    logger.addHandler(fh)
+
     request.cls.logger = logger
     yield
 
