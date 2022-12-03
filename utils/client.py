@@ -20,12 +20,14 @@ class Client:
         response = requests.post(self.__BASE_URL + endpoint, json=body)
         return response
 
-    def delete(self):
-        pass
+    def delete(self, endpoint):
+        response = requests.delete(self.__BASE_URL + endpoint)
+        return response
 
     def put(self):
         pass
 
-    def patch(self):
-        pass
+    def patch(self, endpoint, body):
+        response = requests.patch(self.__BASE_URL + endpoint, json=body)
+        return response
 

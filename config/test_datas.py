@@ -2,6 +2,8 @@ import random
 import string
 
 
+# This file contains test cases and required test datas for the cases with the functions to build the data sets.
+
 class RegisterTestData:
     def __init__(self):
         first_name_char_range = (2, 50)  # FirstName Char Ranges
@@ -1208,6 +1210,7 @@ class RegisterTestData:
                 request_body[key] = self.generate_string(value["length"], value["range"], value["chars_type"])
             return request_body
 
+
 class GetUserTestData:
     test_data = [
         {
@@ -1235,4 +1238,65 @@ class GetUserTestData:
             "user_id": "",
             "is_valid": False
         }
+    ]
+
+
+class RemoveUserTestData:
+    test_data = [
+        {
+            "Case": "Remove User - Valid User ID",
+            "user_id": "c4f6c088-f91b-494e-b7f0-a08f48df3180",
+            "Positive Case": True
+        },
+        {
+            "Case": "Remove User - Invalid User ID",
+            "user_id": "c1234567-AB12-ABC4-1234-A1B2C3D4E5",
+            "Positive Case": False
+        },
+        {
+            "Case": "Remove User - Empty User ID",
+            "user_id": "",
+            "Positive Case": False
+        }
+    ]
+
+
+class SwitchActivityTestData:
+    test_data = [
+        {
+            "Case": "Switch User Activity - Valid User ID - isActive: True (Boolean)",
+            "user_id": "c4f6c088-f91b-494e-b7f0-a08f48df3180",
+            "new_isActive": False,
+            "Positive Case": True
+        },
+        {
+            "Case": "Switch User Activity - Valid User ID - isActive: False (Boolean)",
+            "user_id": "c4f6c088-f91b-494e-b7f0-a08f48df3180",
+            "new_isActive": False,
+            "Positive Case": True
+        },
+        {
+            "Case": "Switch User Activity - Valid User ID - isActive: true (String)",
+            "user_id": "c4f6c088-f91b-494e-b7f0-a08f48df3180",
+            "new_isActive": "true",
+            "Positive Case": False
+        },
+        {
+            "Case": "Switch User Activity - Valid User ID - isActive: false (String)",
+            "user_id": "c4f6c088-f91b-494e-b7f0-a08f48df3180",
+            "new_isActive": "false",
+            "Positive Case": False
+        },
+        {
+            "Case": "Switch User Activity - Valid User ID - isActive: Empty",
+            "user_id": "c4f6c088-f91b-494e-b7f0-a08f48df3180",
+            "new_isActive": "",
+            "Positive Case": False
+        },
+        {
+            "Case": "Switch User Activity - Invalid User ID",
+            "user_id": "c1234567-AB12-ABC4-1234-A1B2C3D4E5",
+            "new_isActive": False,
+            "Positive Case": False
+        },
     ]
