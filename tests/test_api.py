@@ -14,10 +14,9 @@ class TestApi(BaseTest):
     @pytest.mark.parametrize('case', RegisterTestData().registerTestCases,
                              ids=[i["Case"] for i in RegisterTestData().registerTestCases])
     def test_register(self, case):
-        self.logger.info(f"\nRunning -> {case['Case']}")
-
         request_dict = case["Request_Body"]
-        self.logger.info(f"\nRequest Body: {request_dict}")
+
+        self.logger.info(f"\nRunning -> {case['Case']}\nRequest Body: {request_dict}")
 
         response = self.client.post("/users", request_dict)
 
@@ -145,3 +144,4 @@ class TestApi(BaseTest):
                         400)  # Status code is expected as 400 when the request cannot be processed due to something perceived to be a client error.
 
         check.less(response.elapsed.total_seconds(), 5)  # Expect the request to be responded within 5 seconds.
+
