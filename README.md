@@ -4,7 +4,7 @@
 [![PyTest](https://img.shields.io/badge/PyTest-orange?style=flat&logo=pytest)](https://docs.pytest.org/en/6.2.x/)
 [![Allure](https://img.shields.io/badge/-Allure-green)](https://docs.qameta.io/allure/)
 
-![RoofStacks Logo](/roofstacks-logo.png)
+![RoofStacks Logo](https://user-images.githubusercontent.com/13181041/205502116-c28125c8-ae00-442d-87a8-a0d4c2fe290d.png)
 
 ## Project Goal:
 
