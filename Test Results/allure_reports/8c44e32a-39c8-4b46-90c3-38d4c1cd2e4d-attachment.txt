@@ -1,0 +1,1 @@
+[32mINFO    [0m test_remove_user[Remove User - Valid User ID]:test_api.py:111 | Case: Remove User - Valid User ID | User ID: c4f6c088-f91b-494e-b7f0-a08f48df3180

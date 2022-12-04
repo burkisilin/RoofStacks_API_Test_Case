@@ -1,0 +1,1 @@
+[32mINFO    [0m test_remove_user[Remove User - Empty User ID]:test_api.py:111 | Case: Remove User - Empty User ID | User ID:

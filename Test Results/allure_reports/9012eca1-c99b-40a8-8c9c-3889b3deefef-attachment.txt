@@ -1,0 +1,3 @@
+[32mINFO    [0m test_register[Create user - username Numeric]:test_api.py:20 
+Running -> Create user - username Numeric
+Request Body: {'firstName': 'QZetUjdBWTxbDJDgyuvEXAVvvU', 'lastName': 'YxfGKfVUjlTdSiKJHiPJKidYBU', 'username': '40836829', 'password': 'oYch3515'}

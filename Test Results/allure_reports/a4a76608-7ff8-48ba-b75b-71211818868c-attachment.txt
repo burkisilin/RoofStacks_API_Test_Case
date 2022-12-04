@@ -1,0 +1,1 @@
+[32mINFO    [0m test_get_user_by_id[Get User - Invalid User ID0]:test_api.py:84 | Case: Get User - Invalid User ID | User ID: c1234567-AB12-ABC4-1234-A1B2C3D4E5

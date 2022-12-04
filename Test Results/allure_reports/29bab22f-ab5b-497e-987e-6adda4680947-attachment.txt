@@ -1,0 +1,3 @@
+[32mINFO    [0m test_update_user_info[Update User Info - Invalid Field]:test_api.py:151 
+Running -> Update User Info - Invalid Field
+Request Body: {'firstName': 'EotpIuThjFbeXgvFLRbScujiCN', 'lastName': 'PfcTkCmWUqXBpBsgSiRrjUhOSA', 'invalidField': 'NyfkXS'}

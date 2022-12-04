@@ -1,0 +1,3 @@
+[32mINFO    [0m test_register[Create user - Max Values]:test_api.py:20 
+Running -> Create user - Max Values
+Request Body: {'firstName': 'xWmoSJVpvykxPWyelZosURSphpOdpLUsWyWquKbvaUuEbNKcYP', 'lastName': 'HdLGPZJnktRrbpsVdskmDJGKMBCbIWhmopOzmxKRUNzhhTxuGj', 'username': 'AoQSPC942052', 'password': 'jqej2691'}

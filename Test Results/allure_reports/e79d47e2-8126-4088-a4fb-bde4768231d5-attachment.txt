@@ -1,0 +1,3 @@
+[32mINFO    [0m test_register[Create user - Minimum Values]:test_api.py:20 
+Running -> Create user - Minimum Values
+Request Body: {'firstName': 'sy', 'lastName': 'KL', 'username': 'OB01', 'password': 'sS54'}

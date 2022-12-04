@@ -1,0 +1,3 @@
+[32mINFO    [0m test_update_user_info[Update User Info - Lastname Symbolic]:test_api.py:151 
+Running -> Update User Info - Lastname Symbolic
+Request Body: {'firstName': 'FsyqLitKpnGzVynzSHhcZriacB', 'lastName': '?!`=``{!:.:((^!%<|/?}\\##,^'}

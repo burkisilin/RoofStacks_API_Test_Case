@@ -1,0 +1,3 @@
+[32mINFO    [0m test_register[Create user - Firstname Is Below Min Value]:test_api.py:20 
+Running -> Create user - Firstname Is Below Min Value
+Request Body: {'firstName': 'U', 'lastName': 'FbfHAUcmJCBiTAQUKsUvXNZtzc', 'username': 'Ggpe5154', 'password': 'wj1$#"'}

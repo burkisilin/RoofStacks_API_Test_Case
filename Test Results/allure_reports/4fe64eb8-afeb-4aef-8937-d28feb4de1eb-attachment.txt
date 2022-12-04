@@ -1,0 +1,3 @@
+[32mINFO    [0m test_update_user_info[Update User Info - Empty firstName & lastName Field]:test_api.py:151 
+Running -> Update User Info - Empty firstName & lastName Field
+Request Body: {'firstName': '', 'lastName': ''}

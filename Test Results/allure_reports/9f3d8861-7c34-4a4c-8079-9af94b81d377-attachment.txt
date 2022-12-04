@@ -1,0 +1,3 @@
+[32mINFO    [0m test_register[Create user - Lastname Symbolic]:test_api.py:20 
+Running -> Create user - Lastname Symbolic
+Request Body: {'firstName': 'pNDyROSrnGpHLmDyproAAnPjoR', 'lastName': '\\(!![[@|>`{=|<{\\@.[$~~</!`', 'username': 'baPW7845', 'password': 'kVfh788'}

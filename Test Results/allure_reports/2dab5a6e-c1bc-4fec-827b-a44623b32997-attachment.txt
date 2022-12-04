@@ -1,0 +1,1 @@
+[32mINFO    [0m test_get_user_by_id[Get User - Empty User ID]:test_api.py:84 | Case: Get User - Empty User ID | User ID:

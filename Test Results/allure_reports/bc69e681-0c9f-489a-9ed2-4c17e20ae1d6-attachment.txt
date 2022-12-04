@@ -1,0 +1,3 @@
+[32mINFO    [0m test_register[Create user - Empty Password Field0]:test_api.py:20 
+Running -> Create user - Empty Password Field
+Request Body: {'firstName': 'lbWWPYBtbeYswEPDuOhuUgbHMA', 'lastName': 'sQWoukMTjWxhdITltrTlmNLbIP', 'username': 'anWW0235', 'password': ''}

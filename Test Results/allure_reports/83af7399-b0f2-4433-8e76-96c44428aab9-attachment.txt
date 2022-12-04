@@ -1,0 +1,1 @@
+[32mINFO    [0m test_get_user_by_id[Get User - Valid User ID0]:test_api.py:84 | Case: Get User - Valid User ID | User ID: c4f6c088-f91b-494e-b7f0-a08f48df3180

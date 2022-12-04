@@ -1,0 +1,3 @@
+[32mINFO    [0m test_register[Create user - username Is Above Max Value]:test_api.py:20 
+Running -> Create user - username Is Above Max Value
+Request Body: {'firstName': 'RzNaJgmdcFZtSFbgJodbFyNnTF', 'lastName': 'oXYrxwiNHAdZFjgpQamBTCjYLk', 'username': 'jYtpIC3615945', 'password': '"\\#!(-*'}

@@ -1,0 +1,2 @@
+[32mINFO    [0m test_get_user_by_id[Get User - Valid User ID1]:test_api.py:84 | Case: Get User - Valid User ID | User ID: c3e140a4-99db-44c2-a9ea-896904745993
+[1m[31mERROR   [0m test_get_user_by_id[Get User - Valid User ID1]:test_api.py:100 Test has failed because response has unexpected type of json data

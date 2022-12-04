@@ -1,0 +1,3 @@
+[32mINFO    [0m test_register[Create user - Password AlphaNumeric & Symbolic]:test_api.py:20 
+Running -> Create user - Password AlphaNumeric & Symbolic
+Request Body: {'firstName': 'TTATPHZlgjeKeQMigJucmnlSEw', 'lastName': 'oHCeSXAgpXSXBHYnKDYVEfGiAZ', 'username': 'LdUb9189', 'password': 'Vh41-/~'}
