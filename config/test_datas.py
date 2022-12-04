@@ -1307,7 +1307,7 @@ class UpdateUserInfoTestData:
         first_name_char_range = (2, 50)  # FirstName Char Ranges
         last_name_char_range = (2, 50)  # LastName Char Ranges
 
-        self.registerTestCases = [
+        self.updateInfoTestCases = [
             {
                 "Case": "Update User Info - Min Values",
                 "Test Type": "Positive",
@@ -1639,6 +1639,22 @@ class UpdateUserInfoTestData:
                     },
                     "invalidField": {
                         "range": (4, 8),
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    }
+                })
+            },
+            {
+                "Case": "Update User Info - Invalid User ID",
+                "Test Type": "Negative",
+                "Request_Body": self.generate_request_body(dict_keys={
+                    "firstName": {
+                        "range": first_name_char_range,
+                        "length": "Mid",
+                        "chars_type": "Alpha"
+                    },
+                    "lastName": {
+                        "range": last_name_char_range,
                         "length": "Mid",
                         "chars_type": "Alpha"
                     }

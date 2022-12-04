@@ -3,7 +3,8 @@ import pytest
 from tests import BaseTest
 from utils.client import Client
 import pytest_check as check  # Soft assertion in order to keep the tests running in case of any case fails.
-from config.test_datas import RegisterTestData, GetUserTestData, RemoveUserTestData, SwitchActivityTestData
+from config.test_datas import RegisterTestData, GetUserTestData, RemoveUserTestData, SwitchActivityTestData, \
+    UpdateUserInfoTestData
 from utils.helpers import Helpers
 
 
@@ -14,11 +15,12 @@ class TestApi(BaseTest):
     @pytest.mark.parametrize('case', RegisterTestData().registerTestCases,
                              ids=[i["Case"] for i in RegisterTestData().registerTestCases])
     def test_register(self, case):
-        request_dict = case["Request_Body"]
+        request_body = case["Request_Body"]
 
-        self.logger.info(f"\nRunning -> {case['Case']}\nRequest Body: {request_dict}")
+        self.logger.info(f"\nRunning -> {case['Case']}\nRequest Body: {request_body}")
 
-        response = self.client.post("/users", request_dict)
+        response = self.client.post("/users", request_body)
+        check.less(response.elapsed.total_seconds(), 5)  # Expect the request to be responded within 5 seconds.
 
         if case['Test Type'].lower() == "positive":
             response_json = json.loads(response.content)
@@ -38,8 +40,6 @@ class TestApi(BaseTest):
         else:
             check.equal(response.status_code,
                         400)  # Status code is expected as 400 when the request cannot be processed due to something perceived to be a client error.
-
-        check.less(response.elapsed.total_seconds(), 5)  # Expect the request to be responded within 5 seconds.
 
     def test_register_integration(self):  # Testing of if the registration works.
         new_user_json, new_user_id = self.helpers.register()
@@ -85,6 +85,7 @@ class TestApi(BaseTest):
 
         response = self.client.get(f"/users/{user_id}")
         response_json = json.loads(response.content)
+        check.less(response.elapsed.total_seconds(), 5)  # Expect the request to be responded within 5 seconds.
 
         if case["is_valid"]:
             check.equal(response.status_code, 200)  # Status code is expected as 200 when the request has succeeded.
@@ -103,8 +104,6 @@ class TestApi(BaseTest):
             check.equal(response.status_code,
                         404)  # Status code is expected as 404 when that the server cannot find the requested resource.
 
-        check.less(response.elapsed.total_seconds(), 5)  # Expect the request to be responded within 5 seconds.
-
     @pytest.mark.parametrize('case', RemoveUserTestData.test_data,
                              ids=[i["Case"] for i in RemoveUserTestData.test_data])
     def test_remove_user(self, case):
@@ -112,6 +111,8 @@ class TestApi(BaseTest):
         self.logger.info(f"| Case: {case['Case']} | User ID: {user_id}")
 
         response = self.client.delete(f"/users/{user_id}")
+        check.less(response.elapsed.total_seconds(), 5)  # Expect the request to be responded within 5 seconds.
+
         users_after = self.helpers.get_users()
         if case["Positive Case"]:
             check.equal(response.status_code,
@@ -123,17 +124,17 @@ class TestApi(BaseTest):
             check.equal(response.status_code,
                         404)  # Status code is expected as 404 when that the server cannot find the requested resource.
 
-        check.less(response.elapsed.total_seconds(), 5)  # Expect the request to be responded within 5 seconds.
-
     @pytest.mark.parametrize('case', SwitchActivityTestData.test_data,
                              ids=[i["Case"] for i in SwitchActivityTestData.test_data])
     def test_switch_user_activity(self, case):
         user_id = case["user_id"]
 
-        self.logger.info(f"| Case: {case['Case']} | User ID: {user_id} | New isActive: {case['new_isActive']}")
+        self.logger.info(f"Case: {case['Case']} | User ID: {user_id} | New isActive: {case['new_isActive']}")
 
         request_body = {"isActive": case['new_isActive']}
         response = self.client.patch(f"/users/{user_id}/activity", request_body)
+        check.less(response.elapsed.total_seconds(), 5)  # Expect the request to be responded within 5 seconds.
+
         if case["Positive Case"]:
             response_json = json.loads(response.content)
             check.is_true(response_json["userId"] == user_id and response_json["isActive"] == case[
@@ -143,5 +144,39 @@ class TestApi(BaseTest):
             check.equal(response.status_code,
                         400)  # Status code is expected as 400 when the request cannot be processed due to something perceived to be a client error.
 
+    @pytest.mark.parametrize('case', UpdateUserInfoTestData().updateInfoTestCases,
+                             ids=[i["Case"] for i in UpdateUserInfoTestData().updateInfoTestCases])
+    def test_update_user_info(self, case):
+        self.logger.info(f"Case: {case['Case']}\n{case['Request_Body']}")
+        request_body = case["Request_Body"]
+
+        if "Invalid User ID" not in case['Case']:
+            user_id = "c4f6c088-f91b-494e-b7f0-a08f48df3180"  # Valid User ID
+        else:
+            user_id = "invalid0-abcd-123e-f456-a08f48df0000"  # Invalid User ID
+
+        response = self.client.put(f"/users/{user_id}", request_body)
         check.less(response.elapsed.total_seconds(), 5)  # Expect the request to be responded within 5 seconds.
 
+        if case['Test Type'].lower() == "positive":
+            response_json = json.loads(response.content)
+            user_data = self.helpers.get_user(user_id)  # Get user data for specified ID
+            check.equal(response.status_code,
+                        200)  # Status code is expected as 200 when the request has succeeded.
+            check.is_true(response_json[
+                              "userId"] is not None)  # When the request succeeded a User ID must be returned from the server. Checking if a User ID has returned.
+            check.is_true(type(response_json[
+                                   "userId"]) == str)  # When the request succeeded a User ID must be returned from the server. Checking if the returned value is a string.
+
+            check.equal(user_id, response_json["userId"])  # Check if the API returns correct user id
+
+            check.is_true((case["Request_Body"]["firstName"]).isalpha())  # Expect firstName to contain only Alpha chars
+            check.is_true((case["Request_Body"]["lastName"]).isalpha())  # Expect lastName to contain only Alpha chars
+
+            # Check if the user data is updated successfully
+            check.equal(user_data["firstName"], request_body["firstName"])
+            check.equal(user_data["lastName"], request_body["lastName"])
+
+        else:
+            check.equal(response.status_code,
+                        400)  # Status code is expected as 400 when the request cannot be processed due to something perceived to be a client error.

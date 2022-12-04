@@ -24,8 +24,9 @@ class Client:
         response = requests.delete(self.__BASE_URL + endpoint)
         return response
 
-    def put(self):
-        pass
+    def put(self, endpoint, body):
+        response = requests.put(self.__BASE_URL + endpoint, json=body)
+        return response
 
     def patch(self, endpoint, body):
         response = requests.patch(self.__BASE_URL + endpoint, json=body)

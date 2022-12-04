@@ -16,9 +16,11 @@ class Helpers(BaseTest):
 
         return request_body, new_user_id
 
+    def get_user(self, id):
+        response = self.client.get(f"/users/{id}")
+        return json.loads(response.content)
     def get_users(self):
         response = self.client.get("/users")
-        print(json.loads(response.content))
         return json.loads(response.content)
 
     def check_user_is_deleted(self, users_after, user_id):
@@ -27,3 +29,4 @@ class Helpers(BaseTest):
             return False
         else:
             return True
+
