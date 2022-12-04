@@ -2,6 +2,7 @@ import json
 from tests import BaseTest
 
 
+# Helping functions that used at some tests
 class Helpers(BaseTest):
 
     def register(self):
@@ -19,6 +20,7 @@ class Helpers(BaseTest):
     def get_user(self, id):
         response = self.client.get(f"/users/{id}")
         return json.loads(response.content)
+
     def get_users(self):
         response = self.client.get("/users")
         return json.loads(response.content)
@@ -29,4 +31,3 @@ class Helpers(BaseTest):
             return False
         else:
             return True
-

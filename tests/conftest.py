@@ -5,6 +5,7 @@ from utils.client import Client
 logger = None
 
 
+# Configurations for PyTest
 @pytest.fixture(autouse=True, scope="function")
 def setup(request):
     global logger

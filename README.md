@@ -34,8 +34,9 @@ Day 5: "Update User Info" test cases & automation completed. README.md file edit
 ## Introduction & Project Structure
 
 All the test data sets for test cases are included in ./config/test_datas.py file. For some endpoints, request body has
-generated dynamically with given parameters.
-Test scripts are located in /tests/test_api.py
+generated dynamically with given parameters.<br />
+Test scripts are located in ./tests/test_api.py<br />
+Example test results can be found at ./Test Results folder<br />
 
 ## Setup & Run
 
@@ -73,6 +74,9 @@ pytest --SAVE_LOG yourLogName
 
 ## ALLURE REPORT
 ![allure_report_example](https://user-images.githubusercontent.com/13181041/205501354-0e735ce3-bf85-478c-842b-1e42d9c2bdc1.gif)
+
+
+![Allure Report Example](https://giphy.com/6fabcb98-5009-4293-86d8-6c9aa57cfbea)
 
 
 - https://github.com/allure-framework/allure2/releases allure is downloaded and defined in system variables. In

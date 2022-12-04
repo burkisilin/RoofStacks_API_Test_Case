@@ -1,6 +1,7 @@
 import requests
 
 
+# Client class to send the requests
 class Client:
     __BASE_URL: str
 
@@ -31,4 +32,3 @@ class Client:
     def patch(self, endpoint, body):
         response = requests.patch(self.__BASE_URL + endpoint, json=body)
         return response
-
