@@ -3,6 +3,8 @@ import logging
 from utils.client import Client
 
 logger = None
+
+
 @pytest.fixture(autouse=True, scope="function")
 def setup(request):
     global logger
@@ -24,10 +26,11 @@ def setup(request):
 
 def pytest_addoption(parser):
     parser.addoption("--BASE_URI", action="store", default="https://3e3d2990-3fca-4144-8b26-1538cf135a09.mock.pstmn.io",
-                     help="Base URI for requests")
+                     help="Base URI for requests")  # Allows BASE URI to be set from command prompt
 
     parser.addoption("--SAVE_LOG", action="store", default=False,
-                     help="Save Log on given path")
+                     help="Save Log on given path")  # Enables the log saving
 
-def pytest_exception_interact(report):
+
+def pytest_exception_interact(report):  # Log the assertion fails
     logger.error(f'Test exception:\n{report.longreprtext}')

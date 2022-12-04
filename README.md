@@ -32,6 +32,8 @@ Day 4: Project Structure & code refactored. "Switch User Activity" test cases & 
 Day 5: "Update User Info" test cases & automation completed. README.md file edited.<br />
 
 ## Introduction & Project Structure
+All the test data sets for test cases are included in ./config/test_datas.py file. For some endpoints, request body has generated dynamically with given parameters.
+Test scripts are located in /tests/test_api.py
 
 ## Setup & Run
 

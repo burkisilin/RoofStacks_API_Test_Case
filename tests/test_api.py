@@ -147,8 +147,8 @@ class TestApi(BaseTest):
     @pytest.mark.parametrize('case', UpdateUserInfoTestData().updateInfoTestCases,
                              ids=[i["Case"] for i in UpdateUserInfoTestData().updateInfoTestCases])
     def test_update_user_info(self, case):
-        self.logger.info(f"Case: {case['Case']}\n{case['Request_Body']}")
         request_body = case["Request_Body"]
+        self.logger.info(f"\nRunning -> {case['Case']}\nRequest Body: {request_body}")
 
         if "Invalid User ID" not in case['Case']:
             user_id = "c4f6c088-f91b-494e-b7f0-a08f48df3180"  # Valid User ID

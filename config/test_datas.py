@@ -96,8 +96,8 @@ class RegisterTestData:
                 "Test Type": "Negative",
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
-                        "range": (0, 0),  # Leaves the firstname field empty
-                        "length": "Min",
+                        "range": first_name_char_range,
+                        "length": "0",  # Leaves the firstname field empty
                         "chars_type": "Alpha"
                     },
                     "lastName": {
@@ -126,8 +126,8 @@ class RegisterTestData:
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (0, 0),  # Leaves the lastname field empty
-                        "length": "Min",
+                        "range": last_name_char_range,
+                        "length": "0",  # Leaves the lastname field empty
                         "chars_type": "Alpha"
                     },
                     "username": {
@@ -147,17 +147,17 @@ class RegisterTestData:
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
                         "range": first_name_char_range,
-                        "length": "Min",
+                        "length": "Mid",
                         "chars_type": "Alpha"
                     },
                     "lastName": {
                         "range": last_name_char_range,
-                        "length": "Min",
+                        "length": "Mid",
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (0, 0),  # Leaves the username field empty
-                        "length": "Min",
+                        "range": user_name_char_range,
+                        "length": "0",  # Leaves the username field empty
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
@@ -172,22 +172,22 @@ class RegisterTestData:
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
                         "range": first_name_char_range,
-                        "length": "Min",
+                        "length": "Mid",
                         "chars_type": "Alpha"
                     },
                     "lastName": {
                         "range": last_name_char_range,
-                        "length": "Min",
+                        "length": "Mid",
                         "chars_type": "Alpha"
                     },
                     "username": {
                         "range": user_name_char_range,
-                        "length": "Min",
+                        "length": "Mid",
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
-                        "range": (0, 0),  # Leaves the password field empty
-                        "length": "Min",
+                        "range": (4, 8),
+                        "length": "0",  # Leaves the password field empty
                         "chars_type": "AlphaNumeric"
                     }})
             },
@@ -196,18 +196,18 @@ class RegisterTestData:
                 "Test Type": "Negative",
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
-                        "range": (0, 0),  # Leaves the firstname field empty
-                        "length": "Min",
+                        "range": first_name_char_range,
+                        "length": "0",  # Leaves the firstname field empty
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (0, 0),  # Leaves the lastname field empty
-                        "length": "Min",
+                        "range": last_name_char_range,
+                        "length": "0",  # Leaves the lastname field empty
                         "chars_type": "Alpha"
                     },
                     "username": {
                         "range": user_name_char_range,
-                        "length": "Min",
+                        "length": "Mid",
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
@@ -221,18 +221,18 @@ class RegisterTestData:
                 "Test Type": "Negative",
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
-                        "range": (0, 0),  # Leaves the firstname field empty
-                        "length": "Min",
+                        "range": first_name_char_range,
+                        "length": "0",  # Leaves the firstname field empty
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (0, 0),  # Leaves the lastname field empty
-                        "length": "Min",
+                        "range": last_name_char_range,
+                        "length": "0",  # Leaves the lastname field empty
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (0, 0),  # Leaves the username field empty
-                        "length": "Min",
+                        "range": user_name_char_range,
+                        "length": "0",  # Leaves the username field empty
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
@@ -246,23 +246,23 @@ class RegisterTestData:
                 "Test Type": "Negative",
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
-                        "range": (0, 0),  # Leaves the firstname field empty
-                        "length": "Min",
+                        "range": first_name_char_range,
+                        "length": "0",  # Leaves the firstname field empty
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (0, 0),  # Leaves the lastname field empty
-                        "length": "Min",
+                        "range": last_name_char_range,
+                        "length": "0",  # Leaves the lastname field empty
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (0, 0),  # Leaves the username field empty
-                        "length": "Min",
+                        "range": user_name_char_range,
+                        "length": "0",  # Leaves the username field empty
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
-                        "range": (0, 0),
-                        "length": "Min",  # Leaves the password field empty
+                        "range": (4, 8),
+                        "length": "0",  # Leaves the password field empty
                         "chars_type": "AlphaNumeric"
                     }})
             },
@@ -276,13 +276,13 @@ class RegisterTestData:
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (0, 0),  # Leaves the lastname field empty
-                        "length": "Min",
+                        "range": last_name_char_range,
+                        "length": "0",  # Leaves the lastname field empty
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (0, 0),  # Leaves the username field empty
-                        "length": "Mid",
+                        "range": user_name_char_range,
+                        "length": "0",  # Leaves the username field empty
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
@@ -301,18 +301,18 @@ class RegisterTestData:
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (0, 0),  # Leaves the lastname field empty
-                        "length": "Min",
+                        "range": last_name_char_range,
+                        "length": "0",  # Leaves the lastname field empty
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (0, 0),  # Leaves the username field empty
-                        "length": "Mid",
+                        "range": user_name_char_range,
+                        "length": "0",  # Leaves the username field empty
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
-                        "range": (0, 0),  # Leaves the username field empty
-                        "length": "Random",
+                        "range": (4, 8),
+                        "length": "0",  # Leaves the username field empty
                         "chars_type": "AlphaNumeric"
                     }})
             },
@@ -322,22 +322,22 @@ class RegisterTestData:
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
                         "range": first_name_char_range,
-                        "length": "Min",
+                        "length": "Mid",
                         "chars_type": "Alpha"
                     },
                     "lastName": {
                         "range": last_name_char_range,
-                        "length": "Min",
+                        "length": "Mid",
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (0, 0),  # Leaves the username field empty
-                        "length": "Min",
+                        "range": user_name_char_range,
+                        "length": "0",  # Leaves the username field empty
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
-                        "range": (0, 0),  # Leaves the password field empty
-                        "length": "Min",
+                        "range": (4, 8),
+                        "length": "0",  # Leaves the password field empty
                         "chars_type": "AlphaNumeric"
                     }})
             },
@@ -347,22 +347,22 @@ class RegisterTestData:
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
                         "range": first_name_char_range,
-                        "length": "Min",
+                        "length": "Mid",
                         "chars_type": "Alpha"
                     },
                     "lastName": {
                         "range": last_name_char_range,
-                        "length": "Min",
+                        "length": "Mid",
                         "chars_type": "Alpha"
                     },
                     "username": {
                         "range": user_name_char_range,
-                        "length": "Min",
+                        "length": "Mid",
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
-                        "range": (0, 0),  # Leaves the password field empty
-                        "length": "Min",
+                        "range": (4, 8),
+                        "length": "0",  # Leaves the password field empty
                         "chars_type": "AlphaNumeric"
                     }})
             },
@@ -583,7 +583,7 @@ class RegisterTestData:
                     "username": {
                         "range": user_name_char_range,
                         "length": "Mid",
-                        "chars_type": "AlphaNumeric"
+                        "chars_type": "Alpha"
                     },
                     "password": {
                         "range": (4, 8),
@@ -608,7 +608,7 @@ class RegisterTestData:
                     "username": {
                         "range": user_name_char_range,
                         "length": "Mid",
-                        "chars_type": "AlphaNumeric"
+                        "chars_type": "Numeric"
                     },
                     "password": {
                         "range": (4, 8),
@@ -633,7 +633,7 @@ class RegisterTestData:
                     "username": {
                         "range": user_name_char_range,
                         "length": "Mid",
-                        "chars_type": "AlphaNumeric"
+                        "chars_type": "Symbolic"
                     },
                     "password": {
                         "range": (4, 8),
@@ -796,8 +796,8 @@ class RegisterTestData:
                 "Test Type": "Negative",
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
-                        "range": (1, 1),
-                        "length": "Min",
+                        "range": first_name_char_range,
+                        "length": "Below",
                         "chars_type": "Alpha"
                     },
                     "lastName": {
@@ -821,13 +821,13 @@ class RegisterTestData:
                 "Test Type": "Negative",
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
-                        "range": (1, 1),  # Firstname field will be generated with 1 Char only
-                        "length": "Min",
+                        "range": first_name_char_range,
+                        "length": "Below",
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (1, 1),  # Firstname field will be generated with 1 Char only
-                        "length": "Min",
+                        "range": last_name_char_range,
+                        "length": "Below",
                         "chars_type": "Alpha"
                     },
                     "username": {
@@ -846,8 +846,8 @@ class RegisterTestData:
                 "Test Type": "Negative",
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
-                        "range": (1, 1),  # Firstname field will be generated with 1 Char only
-                        "length": "Min",
+                        "range": first_name_char_range,
+                        "length": "Below",
                         "chars_type": "Alpha"
                     },
                     "lastName": {
@@ -856,8 +856,8 @@ class RegisterTestData:
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (1, 1),  # username field will be generated with 1 Char only
-                        "length": "Min",
+                        "range": user_name_char_range,
+                        "length": "Below",
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
@@ -871,18 +871,18 @@ class RegisterTestData:
                 "Test Type": "Negative",
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
-                        "range": (1, 1),  # Firstname field will be generated with 1 Char only
-                        "length": "Min",
+                        "range": first_name_char_range,
+                        "length": "Below",
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (1, 1),  # Lastname field will be generated with 1 Char only
-                        "length": "Min",
+                        "range": last_name_char_range,
+                        "length": "Below",
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (1, 1),  # username field will be generated with 1 Char only
-                        "length": "Mid",
+                        "range": user_name_char_range,
+                        "length": "Below",
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
@@ -901,8 +901,8 @@ class RegisterTestData:
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (1, 1),  # Lastname field will be generated with 1 Char only
-                        "length": "Min",
+                        "range": last_name_char_range,
+                        "length": "Below",
                         "chars_type": "Alpha"
                     },
                     "username": {
@@ -926,13 +926,13 @@ class RegisterTestData:
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (1, 1),  # Lastname field will be generated with 1 Char only
-                        "length": "Min",
+                        "range": last_name_char_range,
+                        "length": "Below",
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (1, 1),  # username field will be generated with 1 Char only
-                        "length": "Min",
+                        "range": user_name_char_range,
+                        "length": "Below",
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
@@ -956,8 +956,8 @@ class RegisterTestData:
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (1, 1),  # username field will be generated with 1 Char only
-                        "length": "Min",
+                        "range": user_name_char_range,
+                        "length": "Below",
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
@@ -971,8 +971,8 @@ class RegisterTestData:
                 "Test Type": "Negative",
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
-                        "range": (51, 51),  # username field will be generated with 51 Char
-                        "length": "Max",
+                        "range": first_name_char_range,
+                        "length": "Above",
                         "chars_type": "Alpha"
                     },
                     "lastName": {
@@ -996,13 +996,13 @@ class RegisterTestData:
                 "Test Type": "Negative",
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
-                        "range": (51, 51),  # Firstname field will be generated with 51 Char
-                        "length": "Max",
+                        "range": first_name_char_range,
+                        "length": "Above",
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (51, 51),  # Lastname field will be generated with 51 Char
-                        "length": "Max",
+                        "range": last_name_char_range,
+                        "length": "Above",
                         "chars_type": "Alpha"
                     },
                     "username": {
@@ -1021,8 +1021,8 @@ class RegisterTestData:
                 "Test Type": "Negative",
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
-                        "range": (51, 51),  # Firstname field will be generated with 51 Char
-                        "length": "Max",
+                        "range": first_name_char_range,
+                        "length": "Above",
                         "chars_type": "Alpha"
                     },
                     "lastName": {
@@ -1031,8 +1031,8 @@ class RegisterTestData:
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (13, 13),  # username field will be generated with 13 Char
-                        "length": "Max",
+                        "range": user_name_char_range,
+                        "length": "Above",
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
@@ -1046,18 +1046,18 @@ class RegisterTestData:
                 "Test Type": "Negative",
                 "Request_Body": self.generate_request_body(dict_keys={
                     "firstName": {
-                        "range": (51, 51),  # Firstname field will be generated with 51 Char
-                        "length": "Max",
+                        "range": first_name_char_range,
+                        "length": "Above",
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (51, 51),  # Lastname field will be generated with 51 Char
-                        "length": "Max",
+                        "range": last_name_char_range,
+                        "length": "Above",
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (13, 13),  # username field will be generated with 51 Char
-                        "length": "Max",
+                        "range": user_name_char_range,
+                        "length": "Above",
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
@@ -1076,8 +1076,8 @@ class RegisterTestData:
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (51, 51),  # Lastname field will be generated with 51 Char
-                        "length": "Max",
+                        "range": last_name_char_range,
+                        "length": "Above",
                         "chars_type": "Alpha"
                     },
                     "username": {
@@ -1101,13 +1101,13 @@ class RegisterTestData:
                         "chars_type": "Alpha"
                     },
                     "lastName": {
-                        "range": (51, 51),  # Lastname field will be generated with 51 Char
-                        "length": "Max",
+                        "range": last_name_char_range,
+                        "length": "Above",
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (13, 13),  # username field will be generated with 13 Char
-                        "length": "Max",
+                        "range": user_name_char_range,
+                        "length": "Above",
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
@@ -1131,8 +1131,8 @@ class RegisterTestData:
                         "chars_type": "Alpha"
                     },
                     "username": {
-                        "range": (13, 13),  # username field will be generated with 13 Char
-                        "length": "Max",
+                        "range": user_name_char_range,
+                        "length": "Above",
                         "chars_type": "AlphaNumeric"
                     },
                     "password": {
@@ -1145,7 +1145,6 @@ class RegisterTestData:
         ]
 
     def generate_string(self, len_type="Random", char_range=(4, 8), chars_type="All"):
-
         if len_type.lower() == "min":
             string_len = char_range[0]
         elif len_type.lower() == "max":
@@ -1153,10 +1152,17 @@ class RegisterTestData:
         elif len_type.lower() == "mid":
             string_len = round((char_range[1] + char_range[
                 0]) / 2)  # Rounded to the integer so the range function does not throw an error.
+        elif len_type.lower() == "below":
+            string_len = char_range[0] - 1
+        elif len_type.lower() == "above":
+            string_len = char_range[1] + 1
+        elif len_type.lower() == "0":
+            string_len = 0
         elif len_type.lower() == "random":
             string_len = random.randint(char_range[0], char_range[1])
         else:
-            raise ValueError('Unexpected Length Type', len_type, "Expected Types: Min, Max, Mid, Random")
+            raise ValueError('Unexpected Length Type', len_type,
+                             "Expected Types: Min, Max, Mid, Below, Above, 0, Random")
 
         if chars_type.lower() == "alpha":  # Alphabetic characters only
             characters = string.ascii_letters
@@ -1187,7 +1193,7 @@ class RegisterTestData:
             raise ValueError('Unexpected Type', chars_type,
                              "Expected Types: Alpha, Numeric, AlphaNumeric, Symbolic, All")
 
-        if chars_type.lower() == "symbolic" or chars_type.lower() == "alpha" or chars_type.lower() == "numeric":
+        if chars_type.lower() == "symbolic" or chars_type.lower() == "alpha" or chars_type.lower() == "numeric":  # Generating string
             generated_string = ''.join(random.choice(characters) for _ in range(string_len))
 
         return generated_string
@@ -1674,7 +1680,7 @@ class UpdateUserInfoTestData:
             string_len = char_range[0] - 1
         elif len_type.lower() == "above":
             string_len = char_range[1] + 1
-        elif len_type.lower() == "0":
+        elif len_type == "0" or len_type == 0:
             string_len = 0
         elif len_type.lower() == "random":
             string_len = random.randint(char_range[0], char_range[1])
